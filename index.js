@@ -53,7 +53,6 @@ toggleButton.addEventListener('click', function () {
 
   for (var i = 0; i < cnts.length; i++) {
     let test = cnts[i].className.includes('showall');
-    console.log(test);
     if (test) {
       cnts[i].className = cnts[i].className.replace(' showall', '');
     } else {
