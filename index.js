@@ -1,4 +1,6 @@
-// ignore everything below this line
+// ************************************************
+// ignore everything in this file
+// it is just a pile of noodles to make the browser go
 // ************************************************
 import './style.css';
 
@@ -34,7 +36,6 @@ for (var i = 0; i < btns.length; i++) {
     this.className += ' active';
 
     var currentContent = document.getElementsByClassName('show');
-    console.log(currentContent[0]);
     currentContent[0].className = currentContent[0].className.replace(
       ' show',
       ''
@@ -44,3 +45,26 @@ for (var i = 0; i < btns.length; i++) {
       ' show';
   });
 }
+
+var toggleButton = document.getElementById('displayPage');
+
+toggleButton.addEventListener('click', function () {
+  var cnts = document.getElementsByClassName('cnts');
+
+  for (var i = 0; i < cnts.length; i++) {
+    let test = cnts[i].className.includes('showall');
+    console.log(test);
+    if (test) {
+      cnts[i].className = cnts[i].className.replace(' showall', '');
+    } else {
+      cnts[i].className += ' showall';
+    }
+  }
+
+  var x = document.getElementById('navigation');
+  if (x.style.display === 'none') {
+    x.style.display = 'block';
+  } else {
+    x.style.display = 'none';
+  }
+});
