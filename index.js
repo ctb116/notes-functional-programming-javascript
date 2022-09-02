@@ -12,8 +12,16 @@ console.log(contentContainer.childElementCount);
 // Get the container element
 var btnContainer = document.getElementById('navigation');
 
-// Get all buttons with class="btn" inside the container
+// create buttons based on the number of div child elements
+for (var i = 0; i < contentContainer.childElementCount; i++) {
+  const button = btnContainer.appendChild(document.createElement('button'));
+  button.classList.add('btn');
+  button.innerHTML = i + 1;
+}
+
+// assign the first button as active
 var btns = btnContainer.getElementsByClassName('btn');
+btns[0].className += ' active';
 
 // Loop through the buttons and add the active class to the current/clicked button
 for (var i = 0; i < btns.length; i++) {
