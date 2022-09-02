@@ -7,13 +7,13 @@ appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
 const contentContainer = document.getElementById('content');
 
-console.log(contentContainer.childElementCount);
-
 // Get the container element
 var btnContainer = document.getElementById('navigation');
 
-// create buttons based on the number of div child elements
+// create number of buttons based on the number of div child elements
 for (var i = 0; i < contentContainer.childElementCount; i++) {
+  // contentContainer.querySelector(`:nth-child(${i})`).classList.add(i);
+
   const button = btnContainer.appendChild(document.createElement('button'));
   button.classList.add('btn');
   button.innerHTML = i + 1;
@@ -29,5 +29,20 @@ for (var i = 0; i < btns.length; i++) {
     var current = document.getElementsByClassName('active');
     current[0].className = current[0].className.replace(' active', '');
     this.className += ' active';
+
+    var currentChild = contentContainer.querySelector(`:nth-child(${i})`);
+    console.log(this.innerHTML);
+
+    contentContainer.querySelector(
+      `:nth-child(${this.innerHTML})`
+    ).style.display = 'block';
+
+    if (currentChild != this.innerHTML) {
+      console.log(currentChild);
+      contentContainer.querySelector(`:nth-child(${i})`).style.display = 'none';
+    } else {
+      contentContainer.querySelector(`:nth-child(${i})`).style.display =
+        'block';
+    }
   });
 }

@@ -18,3 +18,7 @@ h2 {
   background-color: #666;
   color: white;
 }
+
+#content div {
+  display: none;
+}
